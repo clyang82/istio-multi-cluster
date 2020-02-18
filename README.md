@@ -1,6 +1,8 @@
 This repo is designed to install shared control plane (multi-network) in 2 eks clusters. The document is https://istio.io/docs/setup/install/multicluster/shared-gateways/
 After installed and configurated successfully, deploy the https://github.com/GoogleCloudPlatform/microservices-demo for demo purpose.
 
+The repo is tested against the istio-1.4.4 successfully.
+
 ## Notes for shared control plane (multi-network)
 1. the `context` and `cluster` in .kube/config has some special words so that cannot be used directly. You have modify
 ```
@@ -80,8 +82,7 @@ cluster1:
 ```
 kubectl apply -f ./microservices-demo-release/kubernetes-manifests-cluster1.yaml --context=$CTX_CLUSTER1
 kubectl apply -f ./microservices-demo-release/all-svcs.yaml --context=$CTX_CLUSTER1
-kubectl apply -f ./microservices-demo-release/istio-manifests.yaml --context=$CTX_CLUSTER2
-
+kubectl apply -f ./microservices-demo-release/istio-manifests.yaml --context=$CTX_CLUSTER1
 ```
 cluster2:
 ```
