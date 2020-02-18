@@ -58,7 +58,16 @@ istioctl manifest generate -f install/kubernetes/operator/examples/multicluster/
 ```
 3. Due to the endpoint cannot support FQDN(1.17 has endpointslice), so you have to input the ip address for mesh network configuration
 
-4. There is not gateway for telemetry components by default, you have to enable to external access. Here is original task. I just put the manifest files are in istio/gateways
+4. There is not gateway for telemetry components by default, you have to enable to external access. Here is original task. I just put the manifest files are in istio/gateways. 
+```
+kubectl apply -f ./istio/gateways/ --context=$CTX_CLUSTER1
+```
+Visit the telemetry addons via your browser.
+
+    Kiali: http://<IP ADDRESS OF CLUSTER INGRESS>:15029/
+    Prometheus: http://<IP ADDRESS OF CLUSTER INGRESS>:15030/
+    Grafana: http://<IP ADDRESS OF CLUSTER INGRESS>:15031/
+    Tracing: http://<IP ADDRESS OF CLUSTER INGRESS>:15032/
 
 
 ## Deploy microservices-demo
