@@ -44,10 +44,9 @@ thanos-querier-8565b4dc6-jrsw2                 4/4     Running   0          3d11
 thanos-querier-8565b4dc6-nccw8                 4/4     Running   0          13d
 ```
 
-Propose to deploy the seperated promethues in `openshift-user-workload-monitoring` namespace for ACM, because: 
+Propose to deploy the promethues client in `openshift-user-workload-monitoring` namespace for ACM. the promethues client is reponsible for collecting acm required data, including application monitor data, etc.
 
-- The OCP Grafana does not allow the user to modify or create dashbaords while we have requirements allows the user to create/import dashboards and supports the dynamic creation of dashboards by CR or by the ACM application lifecycle componentry.
-- Each dashboard pulls from a different source Prometheus that are configured in slightly different ways to scrape configuration from target workloads.
+Propose to deploy the grafana in `openshift-user-workload-monitoring` namespace for ACM. The OCP Grafana does not allow the user to modify or create dashbaords while we have requirements allows the user to create/import dashboards and supports the dynamic creation of dashboards by CR or by the ACM application lifecycle componentry.
 
 ### Architecture
 
